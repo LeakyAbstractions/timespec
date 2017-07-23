@@ -1,0 +1,10 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=${prefix}/include
+
+Name: timespec
+Description: Drop-in replacement for C11 timespec
+Version: @VERSION@
+Libs: -L${libdir} -llibtimespec
+Cflags: -I${includedir}
