@@ -1,6 +1,11 @@
 
 # timespec
 
+[![Last release](https://img.shields.io/github/release/LeakyAbstractions/timespec.svg)](https://github.com/LeakyAbstractions/timespec/releases)
+[![Build status](https://travis-ci.org/LeakyAbstractions/timespec.svg?branch=master)](https://travis-ci.org/LeakyAbstractions/timespec)
+[![Code coverage](https://codecov.io/github/LeakyAbstractions/timespec/coverage.svg?branch=master)](https://codecov.io/github/LeakyAbstractions/timespec?branch=master)
+[![Static analysis](https://scan.coverity.com/projects/14157/badge.svg)](https://scan.coverity.com/projects/leakyabstractions-timespec)
+
 > Drop-in replacement for C11 timespec
 
 ![](https://github.com/LeakyAbstractions/timespec/raw/master/doc/logo.png)
