@@ -1,0 +1,19 @@
+{
+  "name": "timespec",
+  "version": "1.0.0",
+  "description": "Drop-in replacement for C11 timespec",
+  "repo": "LeakyAbstractions/timespec",
+  "license": "LGPL",
+  "install": "autoreconf --install && ./configure && make install",
+  "src": [
+    "src/timespec.c",
+    "src/timespec.h"
+  ],
+  "keywords": [
+    "timespec",
+    "library",
+    "c",
+    "date",
+    "time"
+  ]
+}

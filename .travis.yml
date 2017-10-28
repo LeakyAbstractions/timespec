@@ -1,0 +1,41 @@
+language: c
+
+env:
+  global:
+    # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created via the "travis encrypt" command using the project repo's public key
+    - secure: "Gf+TOvWK9i75GwavF+5toj0QN/W6wWMd9nAECa9bY91oeVOm2H76VNftfpGOwY+HBdaFGcGISJuJL1USoRgLBBos86AHvfkGioiQZcprUiaH2N1tBlTiqq8mAFJ0chfF7Yvq8h6ykPyQxReOpML91ldaiP085NoObRfGS+/pG2fldoFhlrdhef1vv+viiIcp/OhDuh5/FYnoslefHEpz/i8HjooGQ9Q04I21xMyFGyWxcihA2buZyHaXX75ak++sQxcyJN5oyHB18oK8xpS0/uFexksNp5tEs+LZxMIym4TGOXpyFgDQLEWDbb38cbC2Z/FmAb0cJ8fytllMDmxNWZSEWLbmeADSheNxjGteJP2gwoC/FmpRVjJ9/SwAYNvCMg+M1RNUaWI0MjewKh5zx6i/M9zIa6RlJdmeKVyDDsfYxdyL1ikEWMVHsICNpPO6THr5KBz7NM6qrtytNsp6YfekeCjnWDKfPkkHKhWKybK0mtcQW66M4C5Tht9+TsI8kstMD0STpA4WBUSOkvrybp5InQhpSWrDZpo668GDUTwRb5E+v0POszHwHI+g9/J3JJ3GkOR2qF5EqpY2u6HUA8CFhg/xwayZ4OCHL7tMwCI/glgEs3P/ud/p+4YXzLQGPq8GcWucpaZj2+j5f2a2ouMKFIlluZXSigzkh/e6LLA="
+
+before_install:
+  - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+
+script:
+
+  - echo travis_fold:start:AUTORECONF
+  - autoreconf --install
+  - echo travis_fold:end:AUTORECONF
+
+  - echo travis_fold:start:CONFIGURE
+  - ./configure
+  - echo travis_fold:end:CONFIGURE
+
+  - echo travis_fold:start:MAKE
+  - make
+  - echo travis_fold:end:MAKE
+
+  - echo travis_fold:start:COVERAGE
+  - make coverage
+  - echo travis_fold:end:COVERAGE
+
+after_success:
+
+  - bash <(curl -s https://codecov.io/bash)
+
+addons:
+  coverity_scan:
+    project:
+      name: "LeakyAbstractions/timespec"
+      description: "Drop-in replacement for C11 timespec"
+    notification_email: coverity@guillermo.in
+    build_command_prepend: "autoreconf --install; ./configure; make clean"
+    build_command: "make -j 4"
+    branch_pattern: coverity_scan
