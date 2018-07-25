@@ -28,7 +28,7 @@
 
 Copyright 2017 [Guillermo Calvo](https://github.com/guillermocalvo)
 
-[![](https://resume.guillermo.in/assets/images/thumb.png)](https://guillermo.in/)
+[![](https://resume.guillermo.in/assets/images/thumb.png)](https://guillermo.in/) [![Greenkeeper badge](https://badges.greenkeeper.io/LeakyAbstractions/timespec.svg)](https://greenkeeper.io/)
 
 
 ## License
