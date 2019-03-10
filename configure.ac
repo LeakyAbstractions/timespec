@@ -7,7 +7,7 @@ AC_PREREQ([2.68])
 
 
 # Initialize package
-AC_INIT([timespec], [1.0.0], [timespec@guillermo.in], [timespec], [https://github.com/LeakyAbstractions/timespec/])
+AC_INIT([timespec], [1.0.0], [timespec@guillermo.dev], [timespec], [https://github.com/LeakyAbstractions/timespec/])
 
 
 # Information on the package

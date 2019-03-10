@@ -35,7 +35,7 @@ addons:
     project:
       name: "LeakyAbstractions/timespec"
       description: "Drop-in replacement for C11 timespec"
-    notification_email: coverity@guillermo.in
+    notification_email: coverity@guillermo.dev
     build_command_prepend: "autoreconf --install; ./configure; make clean"
     build_command: "make -j 4"
     branch_pattern: coverity_scan
